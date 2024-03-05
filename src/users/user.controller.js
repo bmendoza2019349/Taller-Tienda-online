@@ -35,36 +35,38 @@ export const userPost = async (req, res) => {
 
 export const userPut = async (req, res) => {
     try {
-        const userId = req.user._id;
-        const isAdmin = req.user.role === 'ADMINISTRATOR';
-        const targetUserId = isAdmin ? req.body.id : userId;
+        // El middleware ya ha realizado las validaciones necesarias, 
+        //por lo que aquí solo necesitas ejecutar la lógica de actualización
 
-        const { password, ...resto } = req.body;
+        if (req.body.hasOwnProperty('idCliente')) {
+            const { idCliente, role, ...resto } = req.body;
 
-        // Verificar si el usuario tiene permisos para actualizar el perfil especificado
-        if (!isAdmin && userId !== targetUserId) {
-            return res.status(403).json({
-                msg: "No tienes permisos para actualizar este perfil",
+            await User.findByIdAndUpdate(idCliente, resto);
+
+            const usuario = await User.findById(idCliente);
+
+            return res.status(200).json({
+                msg: 'The user has been successfully updated',
+                usuario
+            });
+        } else {
+            const userId = req.user._id;
+            const { password, role, ...resto } = req.body;
+
+            // El middleware ya ha validado la existencia del campo password
+            const usuario = await User.findById(userId);
+
+            // Aquí puedes realizar cualquier lógica adicional si es necesario
+
+            await User.findByIdAndUpdate(userId, resto);
+
+            const usuarioActualizado = await User.findById(userId);
+
+            res.status(200).json({
+                msg: 'El usuario ha sido actualizado exitosamente',
+                usuario: usuarioActualizado,
             });
         }
-
-        // Si el usuario está actualizando su propio perfil, verificar que se proporcionó la contraseña
-        if (!isAdmin && !password) {
-            return res.status(400).json({
-                msg: "La contraseña es requerida para actualizar tu propio perfil",
-            });
-        }
-
-        // Actualizar el usuario usando el ID del usuario especificado
-        await User.findByIdAndUpdate(targetUserId, resto);
-
-        // Volver a buscar al usuario actualizado
-        const usuario = await User.findById(targetUserId);
-
-        res.status(200).json({
-            msg: 'The user has been successfully updated',
-            usuario
-        });
 
     } catch (error) {
         console.log(error);
@@ -74,60 +76,34 @@ export const userPut = async (req, res) => {
     }
 };
 
-export const userDelete = async(req, res) => {
+export const userDelete = async (req, res) => {
     try {
-        const userId = req.user._id;
-        const isAdmin = req.user.role === 'ADMINISTRATOR';
-        const targetUserId = isAdmin ? req.body.id : userId;
-
-        // Verificar si el usuario tiene permisos para eliminar el perfil especificado
-        if (!isAdmin && userId !== targetUserId) {
-            return res.status(403).json({
-                msg: "No tienes permisos para eliminar este perfil",
-            });
-        }
-
-        // Si el usuario está eliminando su propio perfil, verificar la contraseña
-        if (!isAdmin && userId === targetUserId) {
-            const { password } = req.body;
-
-            if (!password) {
-                return res.status(400).json({
-                    msg: "La contraseña es requerida para eliminar tu propio perfil",
-                });
-            }
-
-            const user = await User.findById(userId);
-
-            if (!user || !bcryptjs.compareSync(password, user.password)) {
-                return res.status(401).json({
-                    msg: "Contraseña incorrecta, no se puede eliminar el perfil",
-                });
-            }
-        }
-
-        // Proceder con la eliminación del usuario
-        const user = await User.findByIdAndUpdate(targetUserId, { state: false });
-        res.status(200).json({ msg: 'Usuario eliminado', usuario: user });
+        // La lógica principal ya ha sido trasladada al middleware 
+        //validarDelete, aquí solo necesitas responder con el resultado del middleware
+        res.status(200).json({ msg: 'Usuario eliminado exitosamente' });
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({
-            msg: "Contact the administrator",
-        });
+        return res.status(500).json({ msg: 'Contacta al ADMINISTRATOR' });
     }
 };
 
-export const usersGet = async (req  = request, res = response) => {
-    const query = {state: true};
-
+export const usersGet = async (req = request, res = response) => {
+    const query = { state: true };
+    const queryFalse = { state: false  };
     const [total, usuarios] = await Promise.all([
         User.countDocuments(query),
         User.find(query)
     ]);
+    const [totalFalse, usuariosFalse] = await Promise.all([
+        User.countDocuments(queryFalse),
+        User.find(queryFalse)
+    ]);
 
     res.status(200).json({
         total,
-        usuarios
+        usuarios,
+        totalFalse,
+        usuariosFalse
     });
 }

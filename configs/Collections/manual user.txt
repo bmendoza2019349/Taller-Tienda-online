@@ -1,0 +1,14 @@
+Update User
+si desea actualizar su propio perfil solo ingresa el parametro a actualizar y el password, 
+si un admin quiere actualizar un cliente debe ingresar en body el id para actualizarlo y 
+el campo a actualizar"
+
+Delete user
+si desea eliminar su propio perfil solo ingresa el password, 
+si un admin quiere eliminar un cliente debe ingresar en body el id para eliminarlo
+
+TOKEN 
+No debe ingresar el token ya esta echo al momento de logearse tomara los datos necesarios
+
+INSERT user
+si desea agregar un cliente no es necesario que coloque el role, si es un admin si lo debe colocar 

@@ -1,3 +1,5 @@
+import categoryModel from "../categories/category.model.js";
+
 export const validarUsuario = (req, res, next) => {
     try {
         const userId = req.user._id;
@@ -27,3 +29,18 @@ export const existenteEmail = async (email = '') => {
     }
 }
 
+export const existenteCategory = async(name = '') =>{
+    const existeCategory = await categoryModel.findOne({name});
+
+    if(existeCategory){
+        throw new Error(`The category exists in the database ${name}`)
+    }
+}
+
+export const existeCategoryById = async (id = '') => {
+    const existeCategory = await categoryModel.findById(id);
+
+    if(!existeCategory){
+        throw new Error(`The category with id ${id} does not exist in the database`)
+    }
+}

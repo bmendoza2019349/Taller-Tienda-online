@@ -1,7 +1,7 @@
 import {Router} from "express";
 import { check} from "express-validator";
 import { userDelete, userPost, userPut, usersGet } from "./user.controller.js";
-import { validarCampos, validarRole } from "../middlewares/validar-campos.js";
+import { validarCampos, validarDelete, validarPut, validarRole } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 
 const router = Router();
@@ -27,6 +27,7 @@ router.put(
     validarJWT,
     validarRole,
     validarCampos,
+    validarPut
   ], userPut
 );
 
@@ -36,6 +37,7 @@ router.delete(
       validarJWT,
       validarRole,
       validarCampos,
+      validarDelete
     ], userDelete
 );
 
