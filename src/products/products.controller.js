@@ -24,6 +24,7 @@ export const productPost = async (req, res) => {
         }
         const upperCaseNameProduct = nameProduct.toUpperCase();
         const existingStock = await existenteProduct(upperCaseNameProduct, stock);
+        
         const nameCategory = category.toUpperCase();
 
         let categoryInstance = await Category.findOne({ nameCategory });
@@ -93,20 +94,21 @@ export const getProductByName = async (req, res) => {
 export const productPut = async (req, res = response) => {
     try {
         const { id } = req.params;
-        const { _id, ...resto } = req.body;
+        const { _id, nameProduct, ...resto } = req.body; // Cambiado de resto
+        const upperCaseNameProduct = nameProduct.toUpperCase();
 
         if (req.user.role !== 'ADMINISTRATOR') {
             return res.status(403).json({
-                msg: "You don't have permission to create a category",
+                msg: "You don't have permission to update a product",
             });
         }
 
-        await Products.findByIdAndUpdate(id, resto);
+        await Products.findByIdAndUpdate(id, { nameProduct: upperCaseNameProduct, ...resto }); // Cambiado de nameProduct
 
         const producto = await Products.findOne({ _id: id });
 
         res.status(200).json({
-            msg: 'Product successfull update',
+            msg: 'Product successfully updated',
             producto
         });
     } catch (error) {
@@ -114,9 +116,9 @@ export const productPut = async (req, res = response) => {
         res.status(409).json({
             error: error.message,
             msg: "Contact the administrator"
-        })
+        });
     }
-}
+};
 
 export const productDelete = async (req, res) => {
     const {id} = req.params;
@@ -127,9 +129,21 @@ export const productDelete = async (req, res) => {
         });
     }
 
-    const product = await Products.findByIdAndUpdate(id, { state: DISCONTINUED});
+    const product = await Products.findByIdAndUpdate(id, { state: "DISCONTINUED"});
 
     res.status(200).json({msg:'product sucessfull delete', product });
+}
+
+export const productGet = async (req=request, res= response) => {
+    const query = { state: "EXISTENT"}
+    const [total, product] = await Promise.all([
+        Products.countDocuments(query),
+        Products.find(query)
+    ]);
+    res.status(200).json({
+        total,
+        product
+    });
 }
 
 

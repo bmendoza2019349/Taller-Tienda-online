@@ -2,10 +2,12 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js"
-import { getProductByName, productDelete, productPost, productPut } from "./products.controller.js";
+import { getProductByName, productDelete, productGet, productPost, productPut } from "./products.controller.js";
 import { existProductById, validateProductExistence } from "../helpers/db-validartors.js";
 
 const router = Router();
+
+router.get("/", productGet);
 
 router.post(
     "/",
