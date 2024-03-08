@@ -24,7 +24,7 @@ export const productPost = async (req, res) => {
         }
         const upperCaseNameProduct = nameProduct.toUpperCase();
         const existingStock = await existenteProduct(upperCaseNameProduct, stock);
-        
+
         const nameCategory = category.toUpperCase();
 
         let categoryInstance = await Category.findOne({ nameCategory });
@@ -121,21 +121,40 @@ export const productPut = async (req, res = response) => {
 };
 
 export const productDelete = async (req, res) => {
-    const {id} = req.params;
+    try {
+        const { id } = req.params;
 
-    if (req.user.role !== 'ADMINISTRATOR') {
-        return res.status(403).json({
-            msg: "You don't have permission to create a category",
-        });
+        if (req.user.role !== 'ADMINISTRATOR') {
+            return res.status(403).json({
+                msg: "You don't have permission to create a category",
+            });
+        }
+
+        // Find the product to be deleted
+        const product = await Products.findById(id);
+
+        if (!product) {
+            return res.status(404).json({ msg: 'Product not found' });
+        }
+
+        // Update the product's state to "DISCONTINUED"
+        await Products.findByIdAndUpdate(id, { state: "DISCONTINUED" });
+
+        // Remove the product from the category's product array
+        await Category.updateOne(
+            { product: { $in: [id] } },
+            { $pull: { product: id } }
+        );
+
+        res.status(200).json({ msg: 'Product successfully deleted', product });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: 'Internal Server Error' });
     }
+};
 
-    const product = await Products.findByIdAndUpdate(id, { state: "DISCONTINUED"});
-
-    res.status(200).json({msg:'product sucessfull delete', product });
-}
-
-export const productGet = async (req=request, res= response) => {
-    const query = { state: "EXISTENT"}
+export const productGet = async (req = request, res = response) => {
+    const query = { state: "EXISTENT" }
     const [total, product] = await Promise.all([
         Products.countDocuments(query),
         Products.find(query)
