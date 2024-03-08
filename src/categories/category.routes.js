@@ -4,8 +4,8 @@ import { check } from "express-validator";
 
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
-import { categoryDelete, categoryGet, categoryPost, categoryPut } from "./category.controller.js";
-import { existeCategoryById, existenteCategory } from "../helpers/db-validartors.js";
+import { categoryDelete, categoryGet, categoryPost, categoryPut, getProductsByCategory } from "./category.controller.js";
+import { existeCategoryById, existenteCategory, validateCategoryExistence } from "../helpers/db-validartors.js";
 
 const router = Router();
 
@@ -42,5 +42,7 @@ router.delete(
         check("id").custom(existeCategoryById),
     ], categoryDelete
 );
+
+router.get('/getProductsByCategory', validateCategoryExistence, getProductsByCategory);
 
 export default router;

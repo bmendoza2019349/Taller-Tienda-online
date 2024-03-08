@@ -1,5 +1,6 @@
 import { response, request } from "express";
 import Category from '../categories/category.model.js';
+import Products from "../products/products.model.js";
 
 export const categoryPost = async (req, res) => {
     try {
@@ -123,3 +124,25 @@ export const categoryDelete = async (req, res) => {
         })
     }
 }
+
+//buscar category por nombre
+
+export const getProductsByCategory = async (req, res) => {
+    try {
+        // Obtén la categoría validada a través de req.category
+        const category = req.category;
+
+        // Obtén los productos asociados a la categoría
+        const products = await Products.find({ _id: { $in: category.product } });
+
+        res.status(200).json({
+            msg: 'Productos encontrados exitosamente para la categoría',
+            products,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            msg: 'Error al obtener los productos para la categoría',
+        });
+    }
+};

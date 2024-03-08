@@ -6,13 +6,6 @@ export const userPost = async (req, res) => {
     try {
         const { name, email, password, nit, role } = req.body;
 
-        // Verificar si el usuario tiene el rol de "ADMINISTRATOR"
-        if (req.user.role !== 'ADMINISTRATOR') {
-            return res.status(403).json({
-                msg: "You don't have permission to create a user",
-            });
-        }
-
         const user = new User({ name, email, password, nit, role });
 
         const salt = bcryptjs.genSaltSync();

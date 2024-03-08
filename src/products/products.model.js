@@ -9,11 +9,6 @@ const ProductsSchema = mongoose.Schema({
         type: String,
         required: [true, "The characteristics products is required"]
     },
-    category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        required: [true, 'The category is required']
-    },
     price: {
         type: Number,
         required: [true, "The price products is required"]
@@ -22,6 +17,14 @@ const ProductsSchema = mongoose.Schema({
         type: String,
         required: [true, "The brand products is required"]
     },
+    stock:{
+        type: Number,
+        required: [true, "The stock products is required"]
+    },
+    dateOfExpiry: {
+        trype: Date,
+        required: [false, "The Date of Expiry products is required"]
+    },
     state:{
         type: String,
         default: "EXISTENT",
@@ -29,8 +32,7 @@ const ProductsSchema = mongoose.Schema({
     },
     kindOfPerson: {
         type: String,
-        enum:["ADULT", "CHILD"],
-        required: [true, "The kind Of Person products is required"]
+        enum:["ADULT", "CHILD"]
     },
     sizes: {
         type: String,
@@ -44,9 +46,8 @@ const ProductsSchema = mongoose.Schema({
         type: String,
         required: [false, "The material products is required"]
     },
-    dateOfExpiry: {
-        trype: Date,
-        required: [false, "The Date of Expiry products is required"]
+    ProductBestSeller: {
+        type: Number
     }
 });
 
