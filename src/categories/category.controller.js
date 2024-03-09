@@ -1,6 +1,7 @@
 import { response, request } from "express";
 import Category from '../categories/category.model.js';
 import Products from "../products/products.model.js";
+import Product from "../products/products.model.js";
 
 export const categoryPost = async (req, res) => {
     try {
@@ -88,42 +89,52 @@ export const categoryDelete = async (req, res) => {
             });
         }
 
-        const category = await Category.findById(id);
+        const categoryToDelete = await Category.findById(id);
 
-        if (!category) {
+        if (!categoryToDelete) {
             return res.status(404).json({
                 msg: "Category not found",
             });
         }
 
-        if(category.nameCategory === "GENERAL"){
-            return res.status(404).json({
-                msg: "This category cannot be deleted",
-            });
-        }
-
-        if (category.state === false) {
+        if (categoryToDelete.nameCategory === "GENERAL") {
             return res.status(400).json({
-                msg: "The category already has status false",
+                msg: "The GENERAL category cannot be deleted",
             });
         }
 
-        category.state = false;
-        await category.save();
+        const generalCategory = await Category.findOne({ nameCategory: "GENERAL" });
+
+        if (!generalCategory) {
+            return res.status(404).json({
+                msg: "GENERAL category not found",
+            });
+        }
+
+        // Set the products of the category to delete into the GENERAL category
+        generalCategory.product = generalCategory.product.concat(categoryToDelete.product);
+
+        // Update the state of the category to be deleted
+        categoryToDelete.state = false;
+        await categoryToDelete.save();
+
+        // Update the GENERAL category
+        await generalCategory.save();
 
         res.status(200).json({
             msg: 'Category deactivated successfully',
-            category,
+            category: categoryToDelete,
         });
 
     } catch (error) {
         console.log(error);
         res.status(409).json({
             error: error.message,
-            msg: "Contact the administrator"
-        })
+            msg: "Contact the administrator",
+        });
     }
-}
+};
+
 
 //buscar category por nombre
 

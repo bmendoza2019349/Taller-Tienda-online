@@ -32,8 +32,14 @@ const CartSchema = new mongoose.Schema({
         enum: ['continued', 'finaliced'],
         default: 'continued',
     },
+    subTotal: {
+        type: Number,
+        required: true,
+    },
+    total: {
+        type: Number,
+        required: true
+    }
 });
 
-const Cart = mongoose.model('Cart', CartSchema);
-
-export default Cart;
+export default mongoose.model('Cart', CartSchema);
