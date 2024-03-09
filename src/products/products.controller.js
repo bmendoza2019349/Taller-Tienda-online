@@ -165,4 +165,22 @@ export const productGet = async (req = request, res = response) => {
     });
 }
 
+export const getBestSellingProducts = async (req, res) => {
+    try {
+        // Obtener productos ordenados por ProductBestSeller en orden descendente
+        const bestSellingProducts = await Products.find({ state: "EXISTENT" })
+            .sort({ ProductBestSeller: -1 })
+            .exec();
+
+        res.status(200).json({
+            msg: 'Productos más vendidos obtenidos exitosamente',
+            bestSellingProducts,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            msg: 'Error al obtener los productos más vendidos',
+        });
+    }
+};
 

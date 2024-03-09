@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "65ea7350776b75f156b097a2"
+  },
+  "nameProduct": "PLAYSTATION",
+  "characteristics": "negro con 2 controles",
+  "price": 1700,
+  "brand": "sony",
+  "stock": 35,
+  "dateOfExpiry": {
+    "required": []
+  },
+  "state": "DISCONTINUED",
+  "kindOfPerson": "ADULT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebc7b670b97a7ef14d1e30"
+  },
+  "nameProduct": "LLANTAS",
+  "characteristics": "1 control",
+  "price": 1200,
+  "brand": "michelin",
+  "stock": 50,
+  "dateOfExpiry": {
+    "required": []
+  },
+  "state": "EXISTENT",
+  "kindOfPerson": "CHILD",
+  "__v": 0,
+  "ProductBestSeller": 150
+}]

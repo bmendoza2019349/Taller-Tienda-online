@@ -1,0 +1,200 @@
+[{
+  "_id": {
+    "$oid": "65ea613bed6ba153a9aefbdf"
+  },
+  "nameCategory": "GENERAL",
+  "descriptCategory": "En esta categoria podras encontrar varios productos",
+  "product": [
+    {
+      "$oid": "65eb8dbe01d417d4bf8beeb8"
+    },
+    {
+      "$oid": "65eb8dc201d417d4bf8beebe"
+    },
+    {
+      "$oid": "65eb8dc901d417d4bf8beec4"
+    },
+    {
+      "$oid": "65eb8dd001d417d4bf8beeca"
+    }
+  ],
+  "state": true,
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "65ea6146ed6ba153a9aefbe3"
+  },
+  "nameCategory": "ELECTRÓNICA",
+  "descriptCategory": "Descubre las últimas novedades en dispositivos electrónicos y accesorios tecnológicos.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea614eed6ba153a9aefbe7"
+  },
+  "nameCategory": "ROPA DEPORTIVA",
+  "descriptCategory": "Encuentra la mejor ropa y accesorios deportivos para mantenerte en forma y con estilo.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea6154ed6ba153a9aefbeb"
+  },
+  "nameCategory": "HOGAR Y DECORACIÓN",
+  "descriptCategory": "Dale un toque especial a tu hogar con nuestra selección de muebles, decoración y artículos para el hogar.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea631d13ace7679c09fc92"
+  },
+  "nameCategory": "ENTRETENIMIENTO",
+  "descriptCategory": "Sumérgete en historias fascinantes y descubre una amplia gama de productos de entretenimiento para todas las edades.",
+  "product": [
+    {
+      "$oid": "65ea757e8d440ed5e03674fc"
+    },
+    {
+      "$oid": "65ea7b0a09efb8adfb1156d8"
+    },
+    {
+      "$oid": "65ea99edfdc86047abe67c81"
+    }
+  ],
+  "state": true,
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "65ea632e13ace7679c09fc97"
+  },
+  "nameCategory": "MODA CASUAL",
+  "descriptCategory": "Explora las últimas tendencias en moda casual para lucir con estilo en cualquier ocasión.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea633813ace7679c09fc9b"
+  },
+  "nameCategory": "SALUD Y BIENESTAR",
+  "descriptCategory": "Descubre productos que promueven un estilo de vida saludable y el bienestar personal.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea633e13ace7679c09fc9f"
+  },
+  "nameCategory": "JUGUETES Y JUEGOS EDUCATIVOS",
+  "descriptCategory": "Ofrecemos una amplia variedad de juguetes educativos para el desarrollo creativo y cognitivo de los más pequeños.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea634b13ace7679c09fca3"
+  },
+  "nameCategory": "VIAJES Y AVENTURAS",
+  "descriptCategory": "Prepárate para tu próxima aventura con nuestra selección de productos para viajes y actividades al aire libre.",
+  "product": [
+    {
+      "$oid": "65eb8dbe01d417d4bf8beeb8"
+    },
+    {
+      "$oid": "65eb8dc201d417d4bf8beebe"
+    },
+    {
+      "$oid": "65eb8dc901d417d4bf8beec4"
+    },
+    {
+      "$oid": "65eb8dd001d417d4bf8beeca"
+    }
+  ],
+  "state": false,
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "65ea635513ace7679c09fca7"
+  },
+  "nameCategory": "ARTE Y MANUALIDADES",
+  "descriptCategory": "Expresa tu creatividad con nuestros suministros de arte y artesanía para todas las edades.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea636213ace7679c09fcab"
+  },
+  "nameCategory": "TECNOLOGÍA DOMÉSTICA",
+  "descriptCategory": "Automatiza y moderniza tu hogar con los últimos dispositivos de tecnología doméstica y gadgets inteligentes.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea64c913ace7679c09fcaf"
+  },
+  "nameCategory": "LIMPIEZA",
+  "descriptCategory": "Encuentra los mejores productos de limpieza y accesorios para mantener tu hogar impecable y organizado.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea64d713ace7679c09fcb3"
+  },
+  "nameCategory": "VEHÍCULOS",
+  "descriptCategory": "Personaliza tu vehículo con nuestra selección de accesorios, desde fundas para asientos hasta gadgets útiles para el automóvil.",
+  "product": [
+    {
+      "$oid": "65ebc7b670b97a7ef14d1e30"
+    }
+  ],
+  "state": false,
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "65ea64de13ace7679c09fcb7"
+  },
+  "nameCategory": "VEHICULOS",
+  "descriptCategory": "Personaliza tu vehículo con nuestra selección de accesorios, desde fundas para asientos hasta gadgets útiles para el automóvil.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea64f613ace7679c09fcbb"
+  },
+  "nameCategory": "INFANTIL",
+  "descriptCategory": "Descubre productos esenciales para bebés y niños pequeños, desde pañales hasta juguetes educativos y ropa adorable.",
+  "product": [],
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ea650413ace7679c09fcbf"
+  },
+  "nameCategory": "MASCOTAS",
+  "descriptCategory": "Cuida de tus mascotas con nuestra gama de productos, que incluyen alimentos, juguetes y accesorios para perros, gatos y más.",
+  "product": [],
+  "state": true,
+  "__v": 0
+}]

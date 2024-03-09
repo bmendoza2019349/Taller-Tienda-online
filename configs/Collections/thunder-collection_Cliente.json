@@ -1,0 +1,186 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Cliente",
+    "dateExported": "2024-03-09T06:44:56.530Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6860a83b-e6c3-4b1e-a855-9f4edd2110f4",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "userPost",
+            "url": "http://localhost:3000/systemOnlineStore/v1/user",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-09T06:38:15.623Z",
+            "modified": "2024-03-09T06:38:15.623Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"prueba4\",\n  \"email\": \"prueba4@gmail.com\",\n  \"password\": \"1234\",\n  \"nit\": \"1234567-8\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "235b5181-7a44-41c0-adfd-36f687e3a797",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "userPut",
+            "url": "http://localhost:3000/systemOnlineStore/v1/user",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-03-09T06:38:19.325Z",
+            "modified": "2024-03-09T06:38:19.325Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"dueño\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "2dc7386b-2f38-4210-bc5e-a8553c0acd52",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "userDelete",
+            "url": "http://localhost:3000/systemOnlineStore/v1/user",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-03-09T06:38:25.352Z",
+            "modified": "2024-03-09T06:38:25.352Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "017f6090-3cc6-4553-9894-87be0af3b70d",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "getBestSellingProducts",
+            "url": "http://localhost:3000/systemOnlineStore/v1/product/best-selling-products",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-09T06:38:55.160Z",
+            "modified": "2024-03-09T06:38:55.160Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "3c3f74fa-6993-44df-8b1f-80a36a1095af",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "getProductByName",
+            "url": "http://localhost:3000/systemOnlineStore/v1/product/getProductByName",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-09T06:38:57.112Z",
+            "modified": "2024-03-09T06:38:57.112Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nameProduct\": \"NINTENDO\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "97223e0c-7bb8-43e9-ae50-3113860f9fa6",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "categoryGet",
+            "url": "http://localhost:3000/systemOnlineStore/v1/category",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-03-09T06:39:07.351Z",
+            "modified": "2024-03-09T06:39:07.351Z",
+            "headers": [],
+            "params": [],
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "b3103abb-9adf-4356-be67-cfdd5fa43013",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "getProductsByCategory",
+            "url": "http://localhost:3000/systemOnlineStore/v1/category/getProductsByCategory",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-03-09T06:39:13.535Z",
+            "modified": "2024-03-09T06:39:13.535Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nameCategory\": \"ENTRETENIMIENTO\"\n}",
+                "form": []
+            },
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "ba12c08f-5bfe-4ec7-bd37-e3d4bbfffdf2",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "agregarCarrito",
+            "url": "http://localhost:3000/systemOnlineStore/v1/cart",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-03-09T06:39:42.015Z",
+            "modified": "2024-03-09T06:39:42.015Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productName\": \"LLANTAS\",\n  \"quantity\": \"25\",\n  \"state\": \"finaliced\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "8cdc1a5c-1855-49a3-aac8-520605b3031d",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "getCart",
+            "url": "http://localhost:3000/systemOnlineStore/v1/cart",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-03-09T06:39:44.120Z",
+            "modified": "2024-03-09T06:39:44.120Z",
+            "headers": [],
+            "params": [],
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "8dda87d0-2d50-4316-9c55-f51ed64c2793",
+            "colId": "87cea540-8b89-45bd-a677-7c58929dd099",
+            "containerId": "",
+            "name": "billGet",
+            "url": "http://localhost:3000/systemOnlineStore/v1/bill/facturas",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-03-09T06:42:48.365Z",
+            "modified": "2024-03-09T06:43:41.204Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "LoginOnlineShopping",
+    "dateExported": "2024-03-09T06:44:24.010Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "394d3534-acb7-490a-bb33-b73f046c533e",
+            "colId": "967adf09-5c1b-4b7a-8520-63739473b9e4",
+            "containerId": "",
+            "name": "loginOnlineStore",
+            "url": "http://localhost:3000/systemOnlineStore/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-04T17:36:06.639Z",
+            "modified": "2024-03-09T05:33:37.194Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"usuario\": \"dueño\",\n  \"password\": \"1234\"\n}\n\n",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "65ebee2ef9559096c4d488d6"
+  },
+  "companyName": "tienda en linea",
+  "companyTel": "25263419",
+  "companyAddress": "3ra calle 6-61 zona 7 ",
+  "user": {
+    "$oid": "65e69eca346fe4f4100ef0aa"
+  },
+  "cart": {
+    "$oid": "65ebe5316d5c0322f452d342"
+  },
+  "total": 60000,
+  "createdAt": {
+    "$date": "2024-03-09T05:05:50.794Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebf24e7181c9ea01e22569"
+  },
+  "companyName": "Online Shopping",
+  "companyTel": "25263419",
+  "companyAddress": "3ra calle 6-61 zona 7 ",
+  "user": {
+    "$oid": "65e69eca346fe4f4100ef0aa"
+  },
+  "cart": {
+    "$oid": "65ebe5316d5c0322f452d342"
+  },
+  "total": 60000,
+  "createdAt": {
+    "$date": "2024-03-09T05:23:26.745Z"
+  },
+  "__v": 0
+}]

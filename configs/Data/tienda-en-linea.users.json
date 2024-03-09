@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "65e669616c4ac9b8ea6466a4"
+  },
+  "name": "prueba1",
+  "email": "prueba1@gmail.com",
+  "password": "$2a$10$CCCCEVyfN7q9FobYCy2w9OD5LYAdsAYvtlgcvBL6DELjzGLLLFlJ.",
+  "nit": "1234567-8",
+  "role": "CLIENT",
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e669a66c4ac9b8ea6466af"
+  },
+  "name": "prueba2",
+  "email": "prueba2@gmail.com",
+  "password": "$2a$10$gLlTKCQ1zeTLe28nNLLSsO13hzD4bblflosE6doMQuhz2Rn4.fse.",
+  "nit": "1234567-8",
+  "role": "CLIENT",
+  "state": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e69919fe69fd3e7400eb13"
+  },
+  "name": "prueba3",
+  "email": "prueba3@gmail.com",
+  "password": "$2a$10$gLlTKCQ1zeTLe28nNLLSsO13hzD4bblflosE6doMQuhz2Rn4.fse.",
+  "nit": "1234567-8",
+  "role": "CLIENT",
+  "state": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e69eca346fe4f4100ef0aa"
+  },
+  "name": "dueño",
+  "email": "dueño@example.com",
+  "password": "$2a$10$HOSiw3sZaNfnBI4gLyNkneDX5UZRQG9jll0fWQmHpfjO59etZLK2O",
+  "role": "ADMINISTRATOR",
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e6a1a3d52fb572f459cd27"
+  },
+  "name": "prueba4",
+  "email": "prueba4@gmail.com",
+  "password": "$2a$10$jcX1r5sAI0sDPv6iffGofOgK/UNWYtyKZmLKg.x.H1PqjMuAFWYSi",
+  "nit": "1234567-8",
+  "role": "CLIENT",
+  "state": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ec00e5531dff1580d4f104"
+  },
+  "name": "prueba5",
+  "email": "prueba5@gmail.com",
+  "password": "$2a$10$GfTRmtfiLiYTP5f22Y93.OfAZOK9LCCm2rTa1lSz3odInnTEBOLSK",
+  "nit": "1234567-8",
+  "role": "ADMINISTRATOR",
+  "state": true,
+  "__v": 0
+}]
