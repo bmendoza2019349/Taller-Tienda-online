@@ -19,7 +19,7 @@ export const productPost = async (req, res) => {
 
         if (req.user.role !== 'ADMINISTRATOR') {
             return res.status(403).json({
-                msg: "You don't have permission to create a category",
+                msg: "You don't have permission to create a product",
             });
         }
         const upperCaseNameProduct = nameProduct.toUpperCase();

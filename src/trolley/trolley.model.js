@@ -29,16 +29,16 @@ const CartSchema = new mongoose.Schema({
     items: [CartItemSchema],
     state: {
         type: String,
-        enum: ['continued', 'finaliced'],
+        enum: ['continued', 'finaliced', 'cancelled'],
         default: 'continued',
     },
     subTotal: {
         type: Number,
-        required: true,
+        default: 0,
     },
     total: {
         type: Number,
-        required: true
+        default: 0,
     }
 });
 

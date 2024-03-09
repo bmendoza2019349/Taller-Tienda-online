@@ -33,6 +33,43 @@ export const addToCart = async (req, res) => {
         }
 
 
+        // Restar la cantidad del stock si el estado es 'finaliced'
+        if (lowerCaseState === "finaliced") {
+            const parsedQuantity = parseInt(quantity);
+
+            if (product.stock >= parsedQuantity) {
+                product.stock -= parsedQuantity;
+                product.ProductBestSeller = (product.ProductBestSeller || 0) + parsedQuantity; // Sumar al ProductBestSeller
+
+                await product.save();
+
+                userCart.state = 'finaliced';
+                return res.json({ msg: 'You cannot add more products. The cart has been finalized.', cart: userCart });
+
+                await userCart.save();
+            } else {
+                return res.status(400).json({ msg: 'Not enough stock available.' });
+            }
+            userCart = new Cart({
+                userId: user._id,
+                items: [],
+                state: 'continued',
+                subTotal: 0,
+                total: 0,
+            });
+            await userCart.save();
+        }
+
+
+        // Eliminar el carrito si el estado es 'cancelled'
+        if (lowerCaseState === 'cancelled') {
+            if (userCart) {
+                await Cart.deleteOne({ _id: userCart._id });
+                return res.status(400).json({ msg: 'The cart has been cancelled. Cannot add products.' });
+            } else {
+                return res.status(400).json({ msg: 'The cart does not exist or has already been cancelled.' });
+            }
+        }
 
         const existingCartItem = userCart.items.find(item => item.productId.equals(product._id));
 
@@ -62,24 +99,6 @@ export const addToCart = async (req, res) => {
         userCart.total = userCart.subTotal;
 
         await userCart.save();
-
-        // Restar la cantidad del stock si el estado es 'finaliced'
-        if (lowerCaseState === "finaliced") {
-            product.stock -= parseInt(quantity);
-            await product.save();
-            userCart.state = 'finaliced';  // Corregir el estado a 'finalized'
-            return res.json({ msg: 'You cannot add more products. The cart has been finalized.', cart: userCart });
-        }
-
-        // Eliminar el carrito si el estado es 'cancelled'
-        if (lowerCaseState === 'cancelled') {
-            if (userCart) {
-                await Cart.deleteOne({ _id: userCart._id });
-                return res.status(400).json({ msg: 'The cart has been cancelled. Cannot add products.' });
-            } else {
-                return res.status(400).json({ msg: 'The cart does not exist or has already been cancelled.' });
-            }
-        }
 
         res.json({ msg: 'Product added to the cart successfully', cart: userCart });
     } catch (error) {
